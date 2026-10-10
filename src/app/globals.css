@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #1c1712;
+  --paper: #f3ecdf;
+  --cream: #fbf7f1;
+  --ember: #d4532b;
+  --moss: #1f6f4a;
+  --amber: #8a5a12;
+  --line: #e4d8c6;
+  --muted: #6f6458;
+  --background: var(--paper);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-cream: var(--cream);
+  --color-ember: var(--ember);
+  --color-moss: var(--moss);
+  --color-amber: var(--amber);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
+}
+
+body {
+  background:
+    radial-gradient(900px 420px at 0% -10%, rgb(212 83 43 / 0.08), transparent 55%),
+    radial-gradient(700px 380px at 100% 0%, rgb(31 111 74 / 0.07), transparent 50%),
+    var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), "Avenir Next", "Segoe UI", sans-serif;
+}
+
+::selection {
+  background: rgb(212 83 43 / 0.22);
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+}
+
+.ticket-in {
+  animation: ticket-in 480ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-origin: center top;
+}
+
+@keyframes ticket-in {
+  from {
+    opacity: 0;
+    transform: rotateX(55deg) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
