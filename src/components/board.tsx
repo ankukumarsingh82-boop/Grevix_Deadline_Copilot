@@ -87,7 +87,7 @@ export function Board() {
 
   function flipTo(nextId: string) {
     if (!now || nextId === state.activeCardId) return;
-    const before = new Map(ranked.map((row, index) => [row.task.id, index]));
+    const before = new Map(shown.map((row, index) => [row.task.id, index]));
     const nextCard = resolveChallenge(nextId);
     const after = rankTasks(state.tasks, nextCard, new Date(now));
     const nextMovement: Record<string, number> = {};
@@ -123,22 +123,28 @@ export function Board() {
 
   async function askModel() {
     if (!card.flags.llmPrioritize || llmBusy) return;
+    const cardId = card.id;
+    const tasks = ranked.map((row) => row.task);
+    const requestedIds = new Set(tasks.map((task) => task.id));
     setLlmBusy(true);
     setBanner(null);
     try {
-      const result = await requestModelRank(
-        card.id,
-        ranked.map((row) => row.task),
-      );
-      updateBoard((current) => ({
-        ...current,
-        ranker: {
-          method: result.method,
-          note: result.note,
-          model: result.model,
-          order: result.method === "llm" ? result.rankedIds : null,
-        },
-      }));
+      const result = await requestModelRank(cardId, tasks);
+      updateBoard((current) => {
+        const open = current.tasks.filter((task) => !task.done);
+        const sameTasks =
+          open.length === requestedIds.size && open.every((task) => requestedIds.has(task.id));
+        if (current.activeCardId !== cardId || !sameTasks) return current;
+        return {
+          ...current,
+          ranker: {
+            method: result.method,
+            note: result.note,
+            model: result.model,
+            order: result.method === "llm" ? result.rankedIds : null,
+          },
+        };
+      });
     } catch (error) {
       const message = error instanceof Error ? error.message : "The model could not be reached.";
       setBanner(`${message} The heuristic order is unchanged.`);
