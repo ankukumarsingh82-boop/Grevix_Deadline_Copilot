@@ -42,8 +42,14 @@ export function TaskList({
                   <h3 className="text-lg font-medium">{row.task.title}</h3>
                   <span className="font-mono text-xs text-muted">{formatScore(row.score)}</span>
                   {delta !== 0 ? (
-                    <span className={delta > 0 ? "text-xs font-medium text-moss" : "text-xs font-medium text-ember"}>
-                      {delta > 0 ? `↑${delta}` : `↓${Math.abs(delta)}`}
+                    <span
+                      className={
+                        delta > 0
+                          ? "rounded-full bg-moss/10 px-2 py-0.5 text-xs font-medium text-moss"
+                          : "rounded-full bg-ember/10 px-2 py-0.5 text-xs font-medium text-ember"
+                      }
+                    >
+                      {delta > 0 ? `Up ${delta}` : `Down ${Math.abs(delta)}`}
                     </span>
                   ) : null}
                 </div>

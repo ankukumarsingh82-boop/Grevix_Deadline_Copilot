@@ -6,9 +6,13 @@ Flipping a card swaps persona labels, toggles features, and changes categories p
 
 ## Live demo
 
-Deployment from this environment is recorded in the pull request. If this line still says pending, `npm run build` is the one-step production build.
+https://temporary-racing-marble-jbeisa6.vercel.app
 
-Live demo: pending
+That address is an anonymous Vercel deploy of this repo. It expires about an hour after the last deploy unless it is claimed:
+
+https://vercel.com/claim-deployment?code=dcb28122-0047-4784-90f3-5d39dd3d5d2a
+
+A lasting production URL needs the repo owner to run `vercel login`, then `vercel deploy --prod`. `npm run build` already passes, so that is one step after login. The desk does not need a database: tasks stay in the browser.
 
 ## Run locally
 
@@ -40,6 +44,8 @@ Tasks and the active card live in `localStorage` (`pivot.deadline-copilot.v1`). 
 5. Flip to **Team unblocker**. The blocked item **Ship the ranker** jumps to **Unblock next**, the waiting-on line is visible, and **Team view** groups You, Sam, and Mina. Energy is off.
 6. Optional: **Ask the model**. With a key, the note switches to the model’s sentence. Without a key, the note says the heuristic is still in charge.
 7. Submit the form with an empty title to see the error. **Clear board** shows the empty state.
+
+Screenshots and a screen recording of steps 2–5 are in [docs/demo/](docs/demo/).
 
 ## Card catalog
 

@@ -7,7 +7,7 @@ Rewritten during the official window. Not a copy of the prep notes.
 - Kickoff: 11 Oct 2026 00:00 IST
 - Hard stop: 12 Oct 2026 02:00 IST
 - Official GitHub: https://github.com/ankukumarsingh82-boop/grevix-deadline-copilot-2026
-- Live demo: pending
+- Live demo: https://temporary-racing-marble-jbeisa6.vercel.app (anonymous Vercel deploy; expires unless claimed)
 
 ## AI did
 
@@ -35,5 +35,7 @@ Rewritten during the official window. Not a copy of the prep notes.
 
 ## Demo script actually recorded
 
-1. TODO for Anku: confirm the recording under `docs/demo/` matches the script you want to submit.
-2. Agent pass: load Solo AfterCode, sample board, add a 45-minute task, flip to Exam cram, flip to Team unblocker.
+1. Solo AfterCode, empty board. Load sample board. Add “Pitch the demo” due in about 45 minutes. What next becomes Pitch the demo, with a 45 min timebox.
+2. Flip to Exam cram. Header becomes Cram Desk, the form says Add topic, the blocker field hides, the streak shows, What next becomes Quiet copy pass, and rows show Up/Down chips.
+3. Flip to Team unblocker. Header becomes Standup Desk, What next becomes Ship the ranker, the waiting badge shows, and Team view groups owners.
+4. TODO for Anku: watch `docs/demo/card-flip.mp4` and replace this list if you re-record it yourself.

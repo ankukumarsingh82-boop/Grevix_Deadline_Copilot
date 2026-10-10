@@ -39,6 +39,17 @@ export function Board() {
   }, [ranked, state.ranker.method, state.ranker.order]);
   const done = state.tasks.filter((task) => task.done);
   const streak = now ? completionStreak(state.tasks, new Date(now)) : 0;
+  const moved = shown
+    .map((row) => ({ title: row.task.title, delta: movement[row.task.id] ?? 0 }))
+    .filter((row) => row.delta !== 0)
+    .sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta));
+  const movementLine =
+    moved.length === 0
+      ? null
+      : moved
+          .slice(0, 2)
+          .map((row) => `${row.title} moved ${row.delta > 0 ? "up" : "down"} ${Math.abs(row.delta)}`)
+          .join(". ") + ".";
 
   function replaceTasks(tasks: Task[], note: string) {
     setMovement({});
@@ -155,10 +166,13 @@ export function Board() {
 
         <main className="space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <p className="max-w-xl text-sm leading-6 text-muted" aria-live="polite">
-              {state.ranker.note}
-              {state.ranker.model ? ` · ${state.ranker.model}` : ""}
-            </p>
+            <div className="max-w-xl text-sm leading-6 text-muted" aria-live="polite">
+              <p>
+                {state.ranker.note}
+                {state.ranker.model ? ` · ${state.ranker.model}` : ""}
+              </p>
+              {movementLine ? <p className="text-ink">{movementLine}</p> : null}
+            </div>
             <div className="flex flex-wrap gap-2">
               <Button type="button" variant="outline" size="sm" onClick={seed}>
                 {labels.seed}
