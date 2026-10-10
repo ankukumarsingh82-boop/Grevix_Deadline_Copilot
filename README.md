@@ -6,13 +6,9 @@ Flipping a card swaps persona labels, toggles features, and changes categories p
 
 ## Live demo
 
-https://temporary-racing-marble-jbeisa6.vercel.app
+https://ankukumarsingh82-boop.github.io/grevix-deadline-copilot-2026/
 
-That address is an anonymous Vercel deploy of this repo. It expires about an hour after the last deploy unless it is claimed:
-
-https://vercel.com/claim-deployment?code=dcb28122-0047-4784-90f3-5d39dd3d5d2a
-
-A lasting production URL needs the repo owner to run `vercel login`, then `vercel deploy --prod`. `npm run build` already passes, so that is one step after login. The desk does not need a database: tasks stay in the browser.
+A static export served by GitHub Pages, rebuilt on every push to `main` (`.github/workflows/pages.yml`). No login, no database: tasks stay in your browser. The static build has no `/api/rank` route, so the optional LLM re-rank falls back to the heuristic ranker there; run locally or on a server host with a key to use the model overlay.
 
 ## Run locally
 

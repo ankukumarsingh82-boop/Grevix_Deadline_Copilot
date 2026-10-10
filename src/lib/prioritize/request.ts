@@ -9,6 +9,15 @@ export type RankResponse = {
 };
 
 export async function requestModelRank(cardId: string, tasks: Task[]): Promise<RankResponse> {
+  // Static builds (GitHub Pages) have no /api route: keep the heuristic order.
+  if (process.env.NEXT_PUBLIC_STATIC_EXPORT === "1") {
+    return {
+      method: "heuristic",
+      note: "Static demo build: no model API here, so the heuristic ranker is used.",
+      model: null,
+      rankedIds: tasks.map((task) => task.id),
+    };
+  }
   const response = await fetch("/api/rank", {
     method: "POST",
     headers: { "content-type": "application/json" },
