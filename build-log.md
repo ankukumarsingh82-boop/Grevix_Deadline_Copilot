@@ -7,7 +7,7 @@ Rewritten during the official window. Not a copy of the prep notes.
 - Kickoff: 11 Oct 2026 00:00 IST
 - Hard stop: 12 Oct 2026 02:00 IST
 - Official GitHub: https://github.com/ankukumarsingh82-boop/grevix-deadline-copilot-2026
-- Live demo: https://temporary-racing-marble-jbeisa6.vercel.app (anonymous Vercel deploy; expires unless claimed)
+- Live demo: http://edvera.me/grevix-deadline-copilot-2026/ (GitHub Pages, gh-pages branch)
 
 ## AI did
 
