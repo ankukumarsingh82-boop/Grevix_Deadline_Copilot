@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const isPages = process.env.STATIC_EXPORT === "1";
-const basePath = "/grevix-deadline-copilot-2026";
+const basePath = process.env.PAGES_BASE_PATH ?? "/Grevix_Deadline_Copilot";
 
 const nextConfig: NextConfig = {
   ...(isPages

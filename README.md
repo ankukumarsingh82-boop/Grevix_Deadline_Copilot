@@ -6,7 +6,7 @@ Flipping a card swaps persona labels, toggles features, and changes categories p
 
 ## Live demo
 
-https://ankukumarsingh82-boop.github.io/grevix-deadline-copilot-2026/
+http://edvera.me/Grevix_Deadline_Copilot/
 
 A static export served by GitHub Pages, rebuilt on every push to `main` (`.github/workflows/pages.yml`). No login, no database: tasks stay in your browser. The static build has no `/api/rank` route, so the optional LLM re-rank falls back to the heuristic ranker there; run locally or on a server host with a key to use the model overlay.
 
