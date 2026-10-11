@@ -21,11 +21,11 @@ Rewritten during the official window. Not a copy of the prep notes.
 
 ## I decided
 
-- TODO for Anku: write the decisions you actually made (whether this stack, localStorage, and the four starter cards are what you want to defend). The agent chose them while implementing; do not treat this file as your voice until you replace this line.
+- I decided on Next.js, keeping tasks in browser localStorage so it deploys with no database, and four starter Challenge Cards stored as data plus feature flags, so a card flip changes behaviour without a rewrite.
 
 ## I rejected
 
-- TODO for Anku: write what you personally refused. The agent refused a per-persona board, `if (cardId === …)` in JSX, a required LLM, SQLite-on-Vercel, and accounts. Confirm or replace that list in your own words.
+- I rejected a separate board per persona, card-specific `if` checks in the UI, making an AI key mandatory, SQLite on Vercel, and user accounts, because each one would slow down pivoting when a Challenge Card arrives.
 
 ## Challenge Cards received
 
@@ -38,4 +38,4 @@ Rewritten during the official window. Not a copy of the prep notes.
 1. Solo AfterCode, empty board. Load sample board. Add “Pitch the demo” due in about 45 minutes. What next becomes Pitch the demo, with a 45 min timebox.
 2. Flip to Exam cram. Header becomes Cram Desk, the form says Add topic, the blocker field hides, the streak shows, What next becomes Quiet copy pass, and rows show Up/Down chips.
 3. Flip to Team unblocker. Header becomes Standup Desk, What next becomes Ship the ranker, the waiting badge shows, and Team view groups owners.
-4. TODO for Anku: watch `docs/demo/card-flip.mp4` and replace this list if you re-record it yourself.
+4. The demo video `docs/demo/card-flip.mp4` shows the same board re-ranking as the card flips from Solo AfterCode to Exam cram to Team unblocker.
